@@ -1,5 +1,8 @@
-user_email = "user1@gmail.com"
-user_password = "Admin123"
+print("""Welcome to Task Manager 
+Please Sign Up""")
+
+user_email = input("Email: ")
+user_password = input("Password: ")
 
 
 task_list = []
@@ -24,8 +27,8 @@ def add_tasks(task_list):
 
 def delete_tasks(task_list):
     print("Type Task for deletion")
-    deleted_task = str(input("Delete Task: "))
-    deletion_confirmation = str(input("Confirm deletion y/n: "))
+    deleted_task = input("Delete Task: ")
+    deletion_confirmation = input("Confirm deletion y/n: ")
     if deletion_confirmation == "y":
         task_list.remove(deleted_task)
         print(f"You have deleted {deleted_task} from your current tasks.")
@@ -40,7 +43,7 @@ def delete_tasks(task_list):
 
 def mark_task(task_list):
     print("Which Task should be marked complete?")
-    marked_task = str(input("Mark Task Complete: "))
+    marked_task = input("Mark Task Complete: ")
     task_list.remove(marked_task)
     task_list.append(marked_task + " ✅ ")
     print("Task marked complete")
@@ -49,23 +52,24 @@ def mark_task(task_list):
 
 log_in_attempt = 0
 
-while log_in_attempt <= 3:
+
+while log_in_attempt < 3:
     print("Welcome, please log in.")
-    email_entry = str(input("Email: "))
-    password_entry = str(input("Password: "))
+    email_entry = input("Email: ")
+    password_entry = input("Password: ")
 
     if email_entry == user_email and password_entry == user_password:
         print("Welcome")
 
         while True:
-            print("' TASK MANAGER"
-                  "-----------------"
-                  " 1. Show Tasks"
-                  " 2. Add Tasks"
-                  " 3. Delete Tasks"
-                  " 4. Mark Task as Complete"
-                  " 5. Exit '")
-            user_input = str(input("Enter command: "))
+            print(""" TASK MANAGER"
+                -----------------
+                1. Show Tasks
+                2. Add Tasks
+                3. Delete Tasks
+                4. Mark Task as Complete
+                5. Exit """)
+            user_input = input("Enter command: ")
             if user_input == "1":
                 show_tasks()
 
@@ -89,3 +93,6 @@ while log_in_attempt <= 3:
     else:
         print("Incorrect Credentials")
     log_in_attempt += 1
+    if log_in_attempt == 3:
+        print("""Mamimun Attempts Reached
+              Goodbye""")
