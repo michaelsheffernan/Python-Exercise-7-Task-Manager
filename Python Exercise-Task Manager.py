@@ -77,10 +77,18 @@ while log_in_attempt < 3:
                 task_list = add_tasks(task_list)
 
             elif user_input == "3":
-                task_list = delete_tasks(task_list)
+                try:
+                    task_list = delete_tasks(task_list)
+
+                except ValueError:
+                    print("That task is not in your list")
 
             elif user_input == "4":
-                task_list = mark_task(task_list)
+                try:
+                    task_list = mark_task(task_list)
+
+                except ValueError:
+                    print("That task is not in your task list.")
 
             elif user_input == "5":
                 print("Thank you for using Task Manager")
@@ -94,5 +102,5 @@ while log_in_attempt < 3:
         print("Incorrect Credentials")
     log_in_attempt += 1
     if log_in_attempt == 3:
-        print("""Mamimun Attempts Reached
+        print("""Maximum Attempts Reached
               Goodbye""")
